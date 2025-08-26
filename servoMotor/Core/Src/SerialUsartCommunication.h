@@ -20,20 +20,22 @@ public:
 	static UART_HandleTypeDef* USART_HANDLER;
 	static uint8_t* reciveBuffer;
 	static int8_t RCV_BUFF_SIZE;
-	static uint8_t* receiveCompleted(void);
+	static uint8_t* receiveCompleted();
 	SerialUsartCommunication();
 	SerialUsartCommunication(UART_HandleTypeDef*);
-	void intHandler(void);
+	//void intHandler(void);
     void send(std::string , int8_t);
     void recieve(uint8_t);
-    int16_t IrecieveAngle(void);
-
+    void IrecieveAngle();
 	virtual ~SerialUsartCommunication();
 private:
-	void recieve(uint8_t,std::function<int16_t(void)>);
+
+    static std::function<int16_t()> interPerter;
 	void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-	uint8_t RCV_IDX,RCV_BYTE;
-	//std::function<int16_t(void)> interPerter;
+	//uint8_t RCV_IDX,RCV_BYTE;
+protected:
+
+
 };
 
 #endif /* SRC_SERIALUSARTCOMMUNICATION_H_ */

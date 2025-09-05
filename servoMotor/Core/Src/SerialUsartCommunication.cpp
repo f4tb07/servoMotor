@@ -1,3 +1,4 @@
+
 /*
  * SerialUsartCommunication.cpp
  *
@@ -130,4 +131,3 @@ uint8_t* SerialUsartCommunication::receiveCompleted ( )
 SerialUsartCommunication::~SerialUsartCommunication() {
 	// TODO Auto-generated destructor stub
 }
-
